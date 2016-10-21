@@ -203,6 +203,7 @@ namespace ResearchBodies
         }
         private void DrawStartWindow(int id)
         {
+            int _difficulty = difficulty;
             GUILayout.BeginVertical();
 
             GUILayout.Box(Locales.currentLocale.Values["misc_lang"], Textures.sectionTitleStyle);
@@ -218,6 +219,15 @@ namespace ResearchBodies
             }
 
             difficulty = GUILayout.Toolbar(difficulty, Database.instance.difficultyStrings);
+
+            // If a different difficulty setting has been selected,
+            // reset costs and reward to that of the new difficulty
+            if (difficulty != _difficulty)
+            {
+                ResearchCost         = Database.instance.StartResearchCosts[difficulty];
+                ProgressResearchCost = Database.instance.ProgressResearchCosts[difficulty];
+                ScienceReward        = Database.instance.ScienceRewards[difficulty];
+            }
 
             GUILayout.Label(Database.instance.GetIgnoredBodies((Level)difficulty));
 
