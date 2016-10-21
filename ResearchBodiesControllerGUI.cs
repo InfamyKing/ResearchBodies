@@ -229,7 +229,7 @@ namespace ResearchBodies
 
             GUILayout.BeginHorizontal();
             GUILayout.Label(new GUIContent("<size=11>" + Locales.currentLocale.Values["start_researchProgress"] + "</size>", Locales.currentLocale.Values["start_researchProgressTT"]), GUILayout.Width(152));
-            ProgressResearchCost = (float)Math.Round(GUILayout.HorizontalSlider(ProgressResearchCost, 5f, 15f, GUILayout.Width(270)));
+            ProgressResearchCost = (float)Math.Round(GUILayout.HorizontalSlider(ProgressResearchCost, 5f, 20f, GUILayout.Width(270)));
             GUILayout.Label(Convert.ToInt32(ProgressResearchCost).ToString(), GUILayout.Width(30));
             GUILayout.EndHorizontal();
 
