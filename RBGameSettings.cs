@@ -92,6 +92,11 @@ namespace ResearchBodies
                     allowTSlevel1 = Database.instance.allowTSlevel1;
                     ResearchBodiesController.instance.showStartUI = true;
                     
+                    // Update costs and reward to the ones specified on "database.cfg"
+                    ResearchCost = Database.instance.StartResearchCosts[Difficulty];
+                    ProgressResearchCost = Database.instance.ProgressResearchCosts[Difficulty];
+                    ScienceReward = Database.instance.ScienceRewards[Difficulty];
+                    
                     foreach (CelestialBody body in Database.instance.BodyList)
                     {
                         CelestialBodyInfo bodyInfo = new CelestialBodyInfo(body.GetName());
